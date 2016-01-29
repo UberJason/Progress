@@ -16,3 +16,12 @@ class WeightModel: NSObject {
         super.init()
     }
 }
+
+extension WeightModel: CPTPlotDataSource {
+    func numberOfRecordsForPlot(plot: CPTPlot) -> UInt {
+        return 10
+    }
+    func numberForPlot(plot: CPTPlot, field fieldEnum: UInt, recordIndex idx: UInt) -> AnyObject? {
+        return idx*4
+    }
+}
