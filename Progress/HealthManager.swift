@@ -9,20 +9,12 @@
 import UIKit
 import HealthKit
 
-enum HealthError: ErrorType {
-    case HealthDataUnavailable
-    case AuthorizationNotProcessed
-}
-
 class HealthManager: NSObject {
     let store = HKHealthStore()
     
-    func authorizeHealthSharingWithSuccess(successHandler: () -> Void, errorHandler: () -> Void) throws {
+    func authorizeHealthSharingWithSuccess(successHandler: () -> Void, errorHandler: () -> Void) {
         // Request authorization
-
-        guard HKHealthStore.isHealthDataAvailable() else {
-            throw HealthError.HealthDataUnavailable
-        }
+        
         guard let weightType = HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass) else { return }
         let authorizationStatus = store.authorizationStatusForType(weightType)
         

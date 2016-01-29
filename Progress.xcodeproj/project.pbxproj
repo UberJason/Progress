@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B58D378B86BF2B491F54A69 /* libPods-Progress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE77A85E89790EBC032AE7C9 /* libPods-Progress.a */; };
 		962357EF1C5AECF600815811 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962357EE1C5AECF600815811 /* HealthManager.swift */; };
 		9670369C1C5AF8EC00727888 /* WeightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670369B1C5AF8EC00727888 /* WeightModel.swift */; };
 		969B226C1C599A1000F5F471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B226B1C599A1000F5F471 /* AppDelegate.swift */; };
@@ -17,8 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B3D2B0DD880D3C177D313B9 /* Pods-Progress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.release.xcconfig"; sourceTree = "<group>"; };
 		962357EE1C5AECF600815811 /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		9670369B1C5AF8EC00727888 /* WeightModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightModel.swift; sourceTree = "<group>"; };
+		9670369D1C5B006700727888 /* Progress-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Progress-Bridging-Header.h"; sourceTree = "<group>"; };
 		969B22681C599A1000F5F471 /* Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969B226B1C599A1000F5F471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969B226D1C599A1000F5F471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,8 @@
 		969B22721C599A1000F5F471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		969B22751C599A1000F5F471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		969B22771C599A1000F5F471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0D8FAA5FDEF54713FA54025 /* Pods-Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.debug.xcconfig"; sourceTree = "<group>"; };
+		CE77A85E89790EBC032AE7C9 /* libPods-Progress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Progress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +38,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B58D378B86BF2B491F54A69 /* libPods-Progress.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2E6D28DC82F1600A35FBB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE77A85E89790EBC032AE7C9 /* libPods-Progress.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E89610E75F109B2AF2C05A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0D8FAA5FDEF54713FA54025 /* Pods-Progress.debug.xcconfig */,
+				6B3D2B0DD880D3C177D313B9 /* Pods-Progress.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		969B225F1C599A1000F5F471 = {
 			isa = PBXGroup;
 			children = (
 				969B226A1C599A1000F5F471 /* Progress */,
 				969B22691C599A1000F5F471 /* Products */,
+				7E89610E75F109B2AF2C05A9 /* Pods */,
+				1F2E6D28DC82F1600A35FBB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +91,7 @@
 				969B22721C599A1000F5F471 /* Assets.xcassets */,
 				969B22741C599A1000F5F471 /* LaunchScreen.storyboard */,
 				969B22771C599A1000F5F471 /* Info.plist */,
+				9670369D1C5B006700727888 /* Progress-Bridging-Header.h */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -77,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 969B227A1C599A1000F5F471 /* Build configuration list for PBXNativeTarget "Progress" */;
 			buildPhases = (
+				353581661849B04112B0BEDB /* Check Pods Manifest.lock */,
 				969B22641C599A1000F5F471 /* Sources */,
 				969B22651C599A1000F5F471 /* Frameworks */,
 				969B22661C599A1000F5F471 /* Resources */,
+				E6BC1C3D3A267E173B02F330 /* Embed Pods Frameworks */,
+				C577C6E5C2F088EE5A3B63FF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +165,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		353581661849B04112B0BEDB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C577C6E5C2F088EE5A3B63FF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Progress/Pods-Progress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6BC1C3D3A267E173B02F330 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Progress/Pods-Progress-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		969B22641C599A1000F5F471 /* Sources */ = {
@@ -254,6 +331,7 @@
 		};
 		969B227B1C599A1000F5F471 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0D8FAA5FDEF54713FA54025 /* Pods-Progress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -261,11 +339,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Progress/Progress-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		969B227C1C599A1000F5F471 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B3D2B0DD880D3C177D313B9 /* Pods-Progress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -273,6 +353,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Progress/Progress-Bridging-Header.h";
 			};
 			name = Release;
 		};

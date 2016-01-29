@@ -17,20 +17,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let manager = HealthManager()
-        do {
-            try manager.authorizeHealthSharingWithSuccess({
-                manager.getWeightData { (results: [HKQuantitySample]) -> Void in
-                    self.model = WeightModel(values: results)
-                    self.loadGraph()
-                }
-                },
-                errorHandler: {
-                    print("Health request denied.")
-            })
-        } catch {
-            print("No health data available.")
-        }
-
+        
+        guard HKHealthStore.isHealthDataAvailable() else { print("No health data available."); return }
+        
+        manager.authorizeHealthSharingWithSuccess({
+            manager.getWeightData { (results: [HKQuantitySample]) -> Void in
+                self.model = WeightModel(values: results)
+                self.loadGraph()
+            }
+            },
+            errorHandler: {
+                print("Health request denied.")
+        })
+        
+        
     }
     
     func loadGraph() {
