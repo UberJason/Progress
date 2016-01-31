@@ -17,22 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CM6-mX-o6r">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msS-SI-nHz" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="72" width="584" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CM6-mX-o6r" secondAttribute="trailing" id="Jh3-t8-rxk"/>
-                            <constraint firstItem="CM6-mX-o6r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Yy7-lI-acy"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CM6-mX-o6r" secondAttribute="bottom" id="lW3-p2-3wU"/>
-                            <constraint firstItem="CM6-mX-o6r" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="w4k-zU-ejR"/>
+                            <constraint firstItem="msS-SI-nHz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="1sL-de-iJy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="msS-SI-nHz" secondAttribute="bottom" constant="8" id="540-a3-bn8"/>
+                            <constraint firstItem="msS-SI-nHz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Gkc-rz-R0y"/>
+                            <constraint firstAttribute="trailing" secondItem="msS-SI-nHz" secondAttribute="trailing" constant="8" id="ZiD-bc-xUB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weight Graph" id="ZDR-wb-RUZ"/>
                     <connections>
-                        <outlet property="hostingView" destination="CM6-mX-o6r" id="hyU-Oe-eJ2"/>
+                        <outlet property="chartView" destination="msS-SI-nHz" id="5Pa-9u-I8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

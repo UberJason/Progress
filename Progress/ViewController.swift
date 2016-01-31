@@ -8,10 +8,12 @@
 
 import UIKit
 import HealthKit
+import Charts
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var hostingView: UIView!
+    @IBOutlet weak var chartView: LineChartView!
+    
     var model: WeightModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,51 +38,37 @@ class ViewController: UIViewController {
     }
     
     func loadGraph() {
-        let graphHostingView = CPTGraphHostingView(frame: hostingView.bounds)
-        hostingView.addSubview(graphHostingView)
-        graphHostingView.translatesAutoresizingMaskIntoConstraints = false
-        hostingView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-[graphHostingView]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["graphHostingView":graphHostingView]))
-        hostingView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[graphHostingView]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["graphHostingView":graphHostingView]))
-        graphHostingView.layoutIfNeeded()
-        
-        let graph = CPTXYGraph(frame: hostingView.frame)
-        graphHostingView.hostedGraph = graph
-        
-        // Set up scatter plot space
-        let plotSpace = graph.defaultPlotSpace as? CPTXYPlotSpace
-        plotSpace?.allowsUserInteraction = true
-        plotSpace?.allowsMomentum = true
-//        plotSpace?.momentumAnimationCurve = .BackOut
-        plotSpace?.xRange = CPTPlotRange(location: 0, length: 10.0)
-        plotSpace?.yRange = CPTPlotRange(location: 0.0, length: 10.0)
-        
-        // Axes
-        let axisSet = graph.axisSet as? CPTXYAxisSet
-        axisSet?.xAxis?.axisConstraints = CPTConstraints.constraintWithLowerOffset(20)
-        axisSet?.xAxis?.majorIntervalLength = 1.0
-        axisSet?.xAxis?.minorTicksPerInterval = 0
-        
-        axisSet?.yAxis?.axisConstraints = CPTConstraints.constraintWithLowerOffset(20)
-        axisSet?.yAxis?.majorIntervalLength = 1.0
-        axisSet?.yAxis?.minorTicksPerInterval = 0
-        let scatterPlot = CPTScatterPlot()
-        scatterPlot.identifier = "Test Plot"
-        
-        // Line style & plot symbols
-        
-        let lineStyle = CPTMutableLineStyle()
-        lineStyle.lineWidth = 1.0
-        lineStyle.lineColor = CPTColor.greenColor()
-        scatterPlot.dataLineStyle = lineStyle
+        chartView.descriptionText = "View your weight progress over time."
+        chartView.noDataText = "No data available - did you allow Health access?"
+        chartView.dragEnabled = true
+        chartView.scaleXEnabled = true
+        chartView.scaleYEnabled = true
+        chartView.pinchZoomEnabled = true
+        chartView.drawGridBackgroundEnabled = false
 
-        let plotSymbol = CPTPlotSymbol.ellipsePlotSymbol()
-        plotSymbol.fill = CPTFill(color: CPTColor.blueColor().colorWithAlphaComponent(0.5))
-        plotSymbol.lineStyle = lineStyle
-        plotSymbol.size = CGSize(width: 5.0, height: 5.0)
-        scatterPlot.plotSymbol = plotSymbol
+        chartView.legend.enabled = false
         
-        scatterPlot.dataSource = model
-        graph.addPlot(scatterPlot)
+        chartView.leftAxis.customAxisMax = 220.0
+        chartView.leftAxis.customAxisMin = 100.0
+        chartView.leftAxis.startAtZeroEnabled = false
+        chartView.leftAxis.drawGridLinesEnabled = false
+        
+        chartView.rightAxis.enabled = false
+        
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.labelPosition = .Bottom
+        
+        chartView.viewPortHandler.setMaximumScaleY(2.0)
+        chartView.viewPortHandler.setMaximumScaleX(2.0)
+        
+        let xVals = ["1", "2", "3", "4"]
+        let yVals = [ChartDataEntry(value: 150, xIndex: 0), ChartDataEntry(value: 175, xIndex: 1), ChartDataEntry(value: 200, xIndex: 3)]
+        
+        let set = LineChartDataSet(yVals: yVals)
+        let data = LineChartData(xVals: xVals, dataSet: set)
+        chartView.data = data
+        
+        chartView.animate(xAxisDuration: 1)
     }
 }
 

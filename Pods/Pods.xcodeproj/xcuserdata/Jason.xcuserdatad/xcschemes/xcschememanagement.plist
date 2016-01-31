@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CorePlot.xcscheme</key>
+		<key>Charts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>AD248D9AA1CA645FB7C49078642CD3C1</key>
+		<key>24090FBCEF7A50AE384678B5C071804B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4BDAB85CFC9CD127E05A6EDB52423BF</key>
+		<key>C849DCDA82090989DC538C8E9CC3A1DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

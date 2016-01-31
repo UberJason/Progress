@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B58D378B86BF2B491F54A69 /* libPods-Progress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE77A85E89790EBC032AE7C9 /* libPods-Progress.a */; };
+		83F367934D37B564292F273E /* Pods_Progress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F5602EC2946595168D6A /* Pods_Progress.framework */; };
 		962357EF1C5AECF600815811 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962357EE1C5AECF600815811 /* HealthManager.swift */; };
 		9670369C1C5AF8EC00727888 /* WeightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670369B1C5AF8EC00727888 /* WeightModel.swift */; };
 		969B226C1C599A1000F5F471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B226B1C599A1000F5F471 /* AppDelegate.swift */; };
@@ -30,7 +30,7 @@
 		969B22751C599A1000F5F471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		969B22771C599A1000F5F471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D8FAA5FDEF54713FA54025 /* Pods-Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.debug.xcconfig"; sourceTree = "<group>"; };
-		CE77A85E89790EBC032AE7C9 /* libPods-Progress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Progress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D734F5602EC2946595168D6A /* Pods_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B58D378B86BF2B491F54A69 /* libPods-Progress.a in Frameworks */,
+				83F367934D37B564292F273E /* Pods_Progress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +48,7 @@
 		1F2E6D28DC82F1600A35FBB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE77A85E89790EBC032AE7C9 /* libPods-Progress.a */,
+				D734F5602EC2946595168D6A /* Pods_Progress.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
