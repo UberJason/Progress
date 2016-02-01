@@ -17,7 +17,6 @@ class WeightModel: NSObject {
     var chartXValues: [String] = []
     init(rawValues: [HKQuantitySample]) {
         self.rawValues = rawValues
-        print(rawValues)
         super.init()
         
         guard let earliestDate = earliestDateFromValues() else { return }
@@ -32,11 +31,11 @@ class WeightModel: NSObject {
             chartValues.append(ChartDataEntry(value: lbs, xIndex: offset))
         }
         let totalDays = NSDate().daysLaterThan(earliestDate)+1
-        for i in 0..<totalDays {
-            chartXValues.append(String(i))
-        }
         
-        print(chartValues)
+        for i in 0..<totalDays {
+            let currentDate = earliestDate.dateByAddingDays(i)
+            chartXValues.append(currentDate.formattedDateWithFormat("MM/d"))
+        }
     }
     
     private func earliestDateFromValues() -> NSDate? {

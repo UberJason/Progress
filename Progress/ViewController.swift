@@ -51,25 +51,42 @@ class ViewController: UIViewController {
         chartView.scaleYEnabled = true
         chartView.pinchZoomEnabled = true
         chartView.drawGridBackgroundEnabled = false
+        chartView.highlightPerTapEnabled = false
+        chartView.highlightPerDragEnabled = false
 
         chartView.legend.enabled = false
         
-        chartView.leftAxis.customAxisMax = model?.highestWeightValue() ?? 200.0
-        chartView.leftAxis.customAxisMin = model?.lowestWeightValue() ?? 0.0
+//        chartView.leftAxis.customAxisMax = 10
+//        chartView.leftAxis.customAxisMin = 0
+        
         chartView.leftAxis.startAtZeroEnabled = false
         chartView.leftAxis.drawGridLinesEnabled = false
         chartView.leftAxis.labelTextColor = UIColor.whiteColor()
+        chartView.leftAxis.axisLineColor = UIColor.whiteColor()
         chartView.rightAxis.enabled = false
-        
+
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.labelTextColor = UIColor.whiteColor()
+        chartView.xAxis.axisLineColor = UIColor.whiteColor()
         chartView.xAxis.labelPosition = .Bottom
         
-        chartView.viewPortHandler.setMaximumScaleY(4.0)
-        chartView.viewPortHandler.setMaximumScaleX(4.0)
+        chartView.viewPortHandler.setMaximumScaleY(8.0)
+        chartView.viewPortHandler.setMaximumScaleX(8.0)
         
         let xVals = model?.chartXValues
         let yVals = model?.chartValues
+
+//        let yVals = [
+//            ChartDataEntry(value: 0, xIndex: 0),
+//            ChartDataEntry(value: 1, xIndex: 1),
+//            ChartDataEntry(value: 2, xIndex: 2),
+//            ChartDataEntry(value: 4, xIndex: 4),
+//            ChartDataEntry(value: 5, xIndex: 5),
+//            ChartDataEntry(value: 7, xIndex: 7),
+//            ChartDataEntry(value: 8, xIndex: 8),
+//            ChartDataEntry(value: 9, xIndex: 9),
+//        ]
+//        let xVals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         
         let set = LineChartDataSet(yVals: yVals)
         set.lineWidth = 1.0
