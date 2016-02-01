@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         manager.authorizeHealthSharingWithSuccess({
             manager.getWeightData { (results: [HKQuantitySample]) -> Void in
-                self.model = WeightModel(values: results)
+                self.model = WeightModel(rawValues: results)
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.loadGraph()
                 })
@@ -61,8 +61,8 @@ class ViewController: UIViewController {
         chartView.viewPortHandler.setMaximumScaleY(2.0)
         chartView.viewPortHandler.setMaximumScaleX(2.0)
         
-        let xVals = ["1", "2", "3", "4"]
-        let yVals = [ChartDataEntry(value: 150, xIndex: 0), ChartDataEntry(value: 175, xIndex: 1), ChartDataEntry(value: 200, xIndex: 3)]
+        let xVals = model?.chartValues.map { String($0.xIndex) }
+        let yVals = model?.chartValues
         
         let set = LineChartDataSet(yVals: yVals)
         let data = LineChartData(xVals: xVals, dataSet: set)

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Progress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>21A914659EA5E86CEABB910044CB2215</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>24090FBCEF7A50AE384678B5C071804B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C849DCDA82090989DC538C8E9CC3A1DC</key>
+		<key>AFEDA8059B169E4068B6DCC4D2F0B0E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
