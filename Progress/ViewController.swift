@@ -12,6 +12,7 @@ import Charts
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var hostingView: UIView!
     @IBOutlet weak var chartView: LineChartView!
     
     var model: WeightModel?
@@ -34,11 +35,16 @@ class ViewController: UIViewController {
                 print("Health request denied.")
         })
         
+        hostingView.layer.cornerRadius = 4.0
+        hostingView.clipsToBounds = true
+        
+        hostingView.backgroundColor = UIColor(red: 63/255.0, green: 195/255.0, blue: 128/255.0, alpha: 1.0)
+        chartView.backgroundColor = UIColor(red: 63/255.0, green: 195/255.0, blue: 128/255.0, alpha: 1.0)
         
     }
     
     func loadGraph() {
-        chartView.descriptionText = "View your weight progress over time."
+        chartView.descriptionText = ""
         chartView.noDataText = "No data available - did you allow Health access?"
         chartView.dragEnabled = true
         chartView.scaleXEnabled = true
@@ -48,23 +54,28 @@ class ViewController: UIViewController {
 
         chartView.legend.enabled = false
         
-        chartView.leftAxis.customAxisMax = 220.0
-        chartView.leftAxis.customAxisMin = 100.0
+        chartView.leftAxis.customAxisMax = model?.highestWeightValue() ?? 200.0
+        chartView.leftAxis.customAxisMin = model?.lowestWeightValue() ?? 0.0
         chartView.leftAxis.startAtZeroEnabled = false
         chartView.leftAxis.drawGridLinesEnabled = false
-        
+        chartView.leftAxis.labelTextColor = UIColor.whiteColor()
         chartView.rightAxis.enabled = false
         
         chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.labelTextColor = UIColor.whiteColor()
         chartView.xAxis.labelPosition = .Bottom
         
-        chartView.viewPortHandler.setMaximumScaleY(2.0)
-        chartView.viewPortHandler.setMaximumScaleX(2.0)
+        chartView.viewPortHandler.setMaximumScaleY(4.0)
+        chartView.viewPortHandler.setMaximumScaleX(4.0)
         
-        let xVals = model?.chartValues.map { String($0.xIndex) }
+        let xVals = model?.chartXValues
         let yVals = model?.chartValues
         
         let set = LineChartDataSet(yVals: yVals)
+        set.lineWidth = 1.0
+        set.circleRadius = 2.0
+        set.setColor(UIColor.whiteColor())
+        set.setCircleColor(UIColor.whiteColor())
         let data = LineChartData(xVals: xVals, dataSet: set)
         chartView.data = data
         

@@ -14,7 +14,7 @@ import Charts
 class WeightModel: NSObject {
     var rawValues: [HKQuantitySample]?
     var chartValues: [ChartDataEntry] = []
-    
+    var chartXValues: [String] = []
     init(rawValues: [HKQuantitySample]) {
         self.rawValues = rawValues
         print(rawValues)
@@ -31,6 +31,10 @@ class WeightModel: NSObject {
             
             chartValues.append(ChartDataEntry(value: lbs, xIndex: offset))
         }
+        let totalDays = NSDate().daysLaterThan(earliestDate)+1
+        for i in 0..<totalDays {
+            chartXValues.append(String(i))
+        }
         
         print(chartValues)
     }
@@ -40,5 +44,15 @@ class WeightModel: NSObject {
         let array = (rawValues as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key: "startDate", ascending: true)])
         guard let rawDate = (array.first as? HKQuantitySample)?.startDate else { return nil }
         return NSDate(year: rawDate.year(), month: rawDate.month(), day: rawDate.day())
+    }
+    
+    func highestWeightValue() -> Double? {
+        let weightSorted = rawValues?.sort { $0.quantity.doubleValueForUnit(HKUnit.poundUnit()) > $1.quantity.doubleValueForUnit(HKUnit.poundUnit()) }
+        return weightSorted?.first?.quantity.doubleValueForUnit(HKUnit.poundUnit())
+    }
+    
+    func lowestWeightValue() -> Double? {
+        let weightSorted = rawValues?.sort { $0.quantity.doubleValueForUnit(HKUnit.poundUnit()) < $1.quantity.doubleValueForUnit(HKUnit.poundUnit()) }
+        return weightSorted?.first?.quantity.doubleValueForUnit(HKUnit.poundUnit())
     }
 }

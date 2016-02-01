@@ -17,22 +17,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msS-SI-nHz" customClass="LineChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYP-SH-okc" userLabel="Hosting View">
                                 <rect key="frame" x="8" y="72" width="584" height="520"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msS-SI-nHz" customClass="LineChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="8" width="568" height="504"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="8" y="8" width="784" height="520"/>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="msS-SI-nHz" secondAttribute="trailing" constant="8" id="ZQX-79-ncU"/>
+                                    <constraint firstItem="msS-SI-nHz" firstAttribute="top" secondItem="kYP-SH-okc" secondAttribute="top" constant="8" id="cvR-Cy-ZRX"/>
+                                    <constraint firstAttribute="bottom" secondItem="msS-SI-nHz" secondAttribute="bottom" constant="8" id="f9z-es-vmr"/>
+                                    <constraint firstItem="msS-SI-nHz" firstAttribute="leading" secondItem="kYP-SH-okc" secondAttribute="leading" constant="8" id="n3E-Bb-UIU"/>
+                                </constraints>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="800" height="536"/>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="msS-SI-nHz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="1sL-de-iJy"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="msS-SI-nHz" secondAttribute="bottom" constant="8" id="540-a3-bn8"/>
-                            <constraint firstItem="msS-SI-nHz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Gkc-rz-R0y"/>
-                            <constraint firstAttribute="trailing" secondItem="msS-SI-nHz" secondAttribute="trailing" constant="8" id="ZiD-bc-xUB"/>
+                            <constraint firstItem="kYP-SH-okc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="0gz-EF-3zR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kYP-SH-okc" secondAttribute="bottom" priority="999" constant="400" id="2nm-Sl-e3m">
+                                <variation key="heightClass=regular-widthClass=compact" constant="400"/>
+                            </constraint>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kYP-SH-okc" secondAttribute="bottom" constant="8" id="6DF-F6-ibC"/>
+                            <constraint firstAttribute="trailing" secondItem="kYP-SH-okc" secondAttribute="trailing" id="7Yd-Lx-N6K"/>
+                            <constraint firstAttribute="trailing" secondItem="kYP-SH-okc" secondAttribute="trailing" constant="8" id="And-lG-CiB"/>
+                            <constraint firstItem="kYP-SH-okc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="PPd-fb-WFZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Yd-Lx-N6K"/>
+                                <exclude reference="2nm-Sl-e3m"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="7Yd-Lx-N6K"/>
+                                <include reference="2nm-Sl-e3m"/>
+                                <exclude reference="6DF-F6-ibC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Weight Graph" id="ZDR-wb-RUZ"/>
                     <connections>
                         <outlet property="chartView" destination="msS-SI-nHz" id="5Pa-9u-I8m"/>
+                        <outlet property="hostingView" destination="kYP-SH-okc" id="Prx-WL-iPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
